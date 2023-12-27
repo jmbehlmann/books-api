@@ -19,4 +19,15 @@ class BooksController < ApplicationController
     @book.save
     render :show
   end
+
+  def update
+    @book = Book.find_by(id: params[:id])
+    @book.update(
+      title: params[:title] || @book.title,
+      author: params[:author] || @book.author,
+      pages: params[:pages] || @book.pages
+    )
+    render :show
+  end
+
 end
