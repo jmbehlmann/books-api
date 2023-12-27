@@ -5,6 +5,11 @@ class BooksController < ApplicationController
     render :index
   end
 
+  def show
+    @book = Book.find_by(id: params[:id])
+    render :show
+  end
+
   def create
     @book = Book.new(
       title: params[:title],
