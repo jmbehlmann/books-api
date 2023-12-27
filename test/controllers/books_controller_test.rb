@@ -38,4 +38,11 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Updated title", data["title"]
   end
 
+  test "destroy" do
+    assert_difference "Book.count", -1 do
+      delete "/books/#{Book.first.id}.json"
+      assert_response 200
+    end
+  end
+
 end
