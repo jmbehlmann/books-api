@@ -1,2 +1,4 @@
-json.extract! book, :id, :created_at, :updated_at
-json.url book_url(book, format: :json)
+json.id book.id
+json.title book.title
+json.author book.author
+json.pages book.pages
